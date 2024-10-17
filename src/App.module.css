@@ -1,0 +1,87 @@
+.cardWrapper {
+  @apply w-full
+  h-[270px]
+  lg:h-[340px]
+  bg-cover
+  bg-no-repeat;
+}
+
+.cardContainer {
+  @apply border-[2.5px]
+  bg-[#27a93b]
+  rounded-[20px]
+  border-[#27a93b]
+  overflow-hidden;
+}
+
+.cardWrapper::before {
+  @apply content-['']
+    absolute
+    inset-[-1px]
+    bg-gradient-to-t
+    from-[rgb(39,169,59)]
+    from-5%
+    to-[rgba(39,169,59,0.19)]
+    to-100%
+    rounded-xl
+    z-10;
+  mask-image: url(./assets/mask-image.svg);
+  mask-position: 50% 40%;
+  mask-repeat: no-repeat;
+  mask-size: cover;
+}
+
+.cardOutline {
+  @apply bg-card-outline 
+  absolute 
+  top-[6px]
+  left-[0px]
+  bottom-[0px]
+  right-[0px]
+  bg-cover 
+  z-20 
+  bg-center 
+  bg-no-repeat;
+}
+
+.cardLogoWrapper {
+  @apply absolute
+  top-4
+  left-7
+  lg:top-8
+  lg:left-8
+  flex
+  z-30
+  justify-center;
+}
+
+.tooltip {
+  @apply absolute 
+  bg-gray-100 
+  rounded-lg 
+  transition-all
+  duration-300
+  ease-in-out
+  top-[-55px] 
+  z-50
+  left-0 
+  text-black 
+  w-full 
+  text-xs 
+  font-bold 
+  p-2 
+  text-left;
+}
+
+.tooltip::after {
+  @apply content-['']
+  absolute
+  top-[100%]
+  left-[10%]
+  -translate-x-1/2
+  border-solid
+  border-8
+  border-t-gray-100
+  border-x-transparent
+  border-b-transparent;
+}

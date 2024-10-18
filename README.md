@@ -17,7 +17,7 @@ To set up the project locally, follow these steps:
 Requirements:
 
 - node (v18+)
-- yarn (v1.2+)
+- yarn (v1.22+)
 
 1. Clone the repository:
 

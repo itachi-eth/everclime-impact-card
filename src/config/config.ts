@@ -68,7 +68,7 @@ export const mockCardData = [
     location: 'Busselton Jetty',
     sponsor: 'Busselton Jetty',
     imageUrl:
-      '	https://carbon-credit-club.s3.ap-southeast-1.amazonaws.com/3341f0fdc5fbca318cde5889cb748777.webp',
+      'https://carbon-credit-club.s3.ap-southeast-1.amazonaws.com/3341f0fdc5fbca318cde5889cb748777.webp',
     logoUrl:
       'https://carbon-credit-club.s3.ap-southeast-1.amazonaws.com/679761860e258ac475db4c9ac3a1a54c.webp',
     rewards: 1,

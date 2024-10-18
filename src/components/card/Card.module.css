@@ -2,8 +2,9 @@
   @apply p-2
   rounded-[20px]
   overflow-hidden
-  max-w-[300px] 
+  max-w-[300px]
   h-auto
+  lg:min-w-[400px]
   lg:max-w-[400px];
 }
 
@@ -39,7 +40,8 @@
 .cardOutline {
   @apply bg-card-outline 
   absolute 
-  top-[10px]
+  top-[7px]
+  lg:top-[15px]
   left-[0px]
   bottom-[0px]
   right-[0px]

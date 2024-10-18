@@ -1,12 +1,14 @@
 .outerCardContainer {
-  @apply max-w-[320px] 
-  lg:max-w-[400px] 
-  rounded-[20px] 
-  p-2;
+  @apply p-2
+  rounded-[20px]
+  overflow-hidden
+  w-[300px] 
+  h-auto
+  lg:w-[400px];
 }
 
 .innerCardContainer {
-  @apply border-[2.5px]
+  @apply border-[3px]
   rounded-[20px]
   overflow-hidden;
 }
@@ -37,7 +39,7 @@
 .cardOutline {
   @apply bg-card-outline 
   absolute 
-  top-[6px]
+  top-[15px]
   left-[0px]
   bottom-[0px]
   right-[0px]
@@ -51,8 +53,8 @@
   @apply absolute
   top-4
   left-7
-  lg:top-8
-  lg:left-8
+  lg:top-9
+  lg:left-12
   flex
   z-30
   justify-center;
@@ -87,4 +89,63 @@
   border-t-gray-100
   border-x-transparent
   border-b-transparent;
+}
+
+.rewardsContainer {
+  @apply bg-gray-600 
+  bg-opacity-40 
+  w-full 
+  h-[65px] 
+  flex 
+  px-5 
+  items-center 
+  justify-between 
+  text-white;
+}
+
+.rewardsCount {
+  @apply text-base 
+  font-bold;
+}
+
+.rewardsWrapper {
+  @apply flex 
+  items-center 
+  justify-center 
+  gap-2;
+}
+
+.rewardsLabel {
+  @apply text-base 
+  font-bold;
+}
+
+.rewardsIconWrapper {
+  @apply flex 
+  items-center 
+  justify-center 
+  gap-1 
+  w-10 
+  h-10 
+  bg-white 
+  bg-opacity-20 
+  rounded-full 
+  relative;
+}
+
+.rewardsBadge {
+  @apply absolute 
+  top-[-5px] 
+  right-[-2px] 
+  w-4
+  h-4 
+  text-white 
+  border-[1px] 
+  border-white 
+  rounded-full 
+  flex 
+  items-center 
+  justify-center 
+  text-xs 
+  font-bold;
 }

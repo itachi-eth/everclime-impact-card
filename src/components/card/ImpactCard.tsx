@@ -10,24 +10,30 @@ const ImpactCard: React.FC<{ data: (typeof mockCardData)[number] }> = ({
 }) => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
 
-  const outerCardContainerClassName = cx({
-    [styles.outerCardContainer]: true,
-    [`bg-[${data.color}]`]: true,
-  });
+  const outerCardContainerClassName = cx(
+    styles.outerCardContainer,
+    `bg-[var(--card-color)]`,
+  );
 
-  const innerCardContainerClassName = cx({
-    [styles.innerCardContainer]: true,
-    [`bg-[${data.color}] border-[${data.color}]`]: true,
-  });
+  const innerCardContainerClassName = cx(
+    styles.innerCardContainer,
+    `bg-[var(--card-color)] border-[var(--card-color)]`,
+  );
 
-  const cardWrapperClassName = cx({
-    [styles.cardWrapper]: true,
-    [`before:from-[${data.color}]`]: true,
-    [`before:to-[${data.color}]/[0.19]]`]: true,
-  });
+  const cardWrapperClassName = cx(
+    styles.cardWrapper,
+    'before:from-[var(--card-color)] before:to-[var(--card-color-transparent)]',
+  );
 
   return (
-    <div className={outerCardContainerClassName}>
+    <div
+      className={outerCardContainerClassName}
+      style={
+        {
+          '--card-color': data.color,
+        } as React.CSSProperties
+      }
+    >
       <div className={innerCardContainerClassName}>
         <div
           className={cx({
@@ -37,9 +43,12 @@ const ImpactCard: React.FC<{ data: (typeof mockCardData)[number] }> = ({
         >
           <div
             className={cardWrapperClassName}
-            style={{
-              backgroundImage: `url(${data.imageUrl})`,
-            }}
+            style={
+              {
+                backgroundImage: `url(${data.imageUrl})`,
+                '--card-color-transparent': `${data.color}30`, // 30 is hex for 19% opacity
+              } as React.CSSProperties
+            }
           ></div>
           <div className={styles.cardOutline} />
           <div className={styles.cardLogoWrapper}>
@@ -101,15 +110,19 @@ const ImpactCard: React.FC<{ data: (typeof mockCardData)[number] }> = ({
             </div>
           </div>
         </div>
-        <div className="bg-gray-600 bg-opacity-40 w-full h-[65px] flex px-5 items-center justify-between text-white">
-          <div className="text-base font-bold">1/200</div>
-          <div className="flex items-center justify-center gap-2">
-            <div className="text-base font-bold">Rewards</div>
-            <div className="flex items-center justify-center gap-1 w-10 h-10 bg-white bg-opacity-20 rounded-full relative">
+        <div className={styles.rewardsContainer}>
+          <div className={styles.rewardsCount}>1/200</div>
+          <div className={styles.rewardsWrapper}>
+            <div className={styles.rewardsLabel}>Rewards</div>
+            <div className={styles.rewardsIconWrapper}>
               <RiCoupon2Fill size={20} />
-              <div className="absolute top-[-5px] right-[-2px] w-4 h-4 text-white border-[1px] border-white rounded-full flex items-center justify-center text-xs bg-[#27a93b] font-bold">
-                {data.rewards}
-              </div>
+              {data.rewards > 0 && (
+                <div
+                  className={cx(styles.rewardsBadge, `bg-[var(--card-color)]`)}
+                >
+                  {data.rewards}
+                </div>
+              )}
             </div>
           </div>
         </div>

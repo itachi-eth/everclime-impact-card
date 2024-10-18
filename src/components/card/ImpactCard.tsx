@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import type { mockCardData } from '../../config/config';
-import styles from './Card.module.css';
-import cx from 'classnames';
 import { RiCoupon2Fill } from 'react-icons/ri';
-import { mappingSlugToIcon } from '../../config/config';
+import { mappingSlugToIcon, type mockCardData } from '../../config/config';
+import cx from 'classnames';
+import styles from './Card.module.css';
 
-const ImpactCard: React.FC<{ data: (typeof mockCardData)[number] }> = ({
-  data,
-}) => {
+const ImpactCard: React.FC<{
+  data: (typeof mockCardData)[number];
+  selectedIndex: number;
+}> = ({ data, selectedIndex }) => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
 
-  const outerCardContainerClassName = cx(
-    styles.outerCardContainer,
-    `bg-[var(--card-color)]`,
-  );
+  const outerCardContainerClassName = cx({
+    [styles.outerCardContainer]: true,
+    [`bg-[var(--card-color)]`]: true,
+    ['opacity-30']: selectedIndex !== data.id,
+  });
 
   const innerCardContainerClassName = cx(
     styles.innerCardContainer,
@@ -24,6 +25,12 @@ const ImpactCard: React.FC<{ data: (typeof mockCardData)[number] }> = ({
     styles.cardWrapper,
     'before:from-[var(--card-color)] before:to-[var(--card-color-transparent)]',
   );
+
+  const handleTouch = (isTouch: boolean) => {
+    if (selectedIndex == data.id) {
+      setIsTooltipVisible(isTouch);
+    }
+  };
 
   return (
     <div
@@ -63,8 +70,10 @@ const ImpactCard: React.FC<{ data: (typeof mockCardData)[number] }> = ({
           <div className="relative">
             <div
               className="text-xl font-bold mb-2 line-clamp-2 overflow-hidden min-h-[40px]"
-              onMouseEnter={() => setIsTooltipVisible(true)}
-              onMouseLeave={() => setIsTooltipVisible(false)}
+              onTouchStart={() => handleTouch(true)}
+              onTouchEnd={() => handleTouch(false)}
+              onMouseEnter={() => handleTouch(true)}
+              onMouseLeave={() => handleTouch(false)}
             >
               {data.title}
             </div>
@@ -105,7 +114,7 @@ const ImpactCard: React.FC<{ data: (typeof mockCardData)[number] }> = ({
               alt="logo"
               className="w-[28x] h-[28px] rounded-full"
             />
-            <div className="text-sm text-center">
+            <div className="text-sm text-center max-w-[150px] sm:max-w-full">
               Made Possible By <strong>{data.sponsor}</strong>
             </div>
           </div>

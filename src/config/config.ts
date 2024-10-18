@@ -4,7 +4,7 @@ import { PiBird } from 'react-icons/pi';
 
 export const mockCardData = [
   {
-    id: 1,
+    id: 0,
     title: 'Jetty Golf Day Offset',
     color: '#27a93b',
     volume: [
@@ -25,7 +25,7 @@ export const mockCardData = [
     rewards: 2,
   },
   {
-    id: 2,
+    id: 1,
     title: 'Plant a Native Tree: Western Australia',
     color: '#8ec83f',
     volume: [
@@ -46,7 +46,7 @@ export const mockCardData = [
     rewards: 0,
   },
   {
-    id: 3,
+    id: 2,
     title: 'Plant a Native Tree: Western Australia',
     color: '#4abbe6',
     volume: [

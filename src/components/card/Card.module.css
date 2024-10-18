@@ -2,9 +2,9 @@
   @apply p-2
   rounded-[20px]
   overflow-hidden
-  w-[300px] 
+  max-w-[300px] 
   h-auto
-  lg:w-[400px];
+  lg:max-w-[400px];
 }
 
 .innerCardContainer {
@@ -39,7 +39,7 @@
 .cardOutline {
   @apply bg-card-outline 
   absolute 
-  top-[15px]
+  top-[10px]
   left-[0px]
   bottom-[0px]
   right-[0px]

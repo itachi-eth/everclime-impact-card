@@ -1,0 +1,78 @@
+.embla {
+  @apply max-w-4xl
+  overflow-x-hidden
+  mx-auto;
+}
+
+.emblaViewport {
+  @apply overflow-hidden;
+}
+
+.emblaContainer {
+  @apply flex 
+  touch-pan-y 
+  touch-pinch-zoom 
+  -ml-4;
+}
+
+.emblaSlide {
+  @apply transform-gpu 
+  flex-shrink-0
+  w-full
+  sm:w-[50%]
+  flex
+  justify-center
+  items-center
+  pl-4;
+}
+
+.emblaControls {
+  @apply flex 
+  justify-center 
+  items-center 
+  gap-4 
+  mt-4;
+}
+
+.button {
+  @apply bg-blue-500 
+  text-white
+  flex
+  justify-center
+  items-center
+  w-8
+  h-8
+  rounded-full;
+}
+
+.button:disabled {
+  @apply cursor-default
+  opacity-30;
+}
+
+.navButton {
+  @apply w-6
+  h-8
+  rounded-md
+  bg-gray-200
+  opacity-70
+  border-2
+  border-gray-200
+  flex 
+  items-center 
+  justify-center;
+}
+
+.isSelected {
+  @apply bg-white;
+}
+
+.navSection {
+  @apply absolute 
+  left-0 
+  right-0 
+  bottom-5 
+  flex 
+  list-none 
+  justify-center;
+}

@@ -1,4 +1,4 @@
-# Impact Card Carousel
+# Everclime Impact Card
 
 ## Description
 

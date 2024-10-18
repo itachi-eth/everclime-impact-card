@@ -1,50 +1,62 @@
-# React + TypeScript + Vite
+# Impact Card Carousel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This project is a React-based web application that showcases impact cards in a carousel format. It's designed to display information about environmental or social impact initiatives, including volume metrics, rewards, and sponsor details.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Dynamic Impact Cards with customizable colors and content
+- Responsive carousel for displaying multiple cards
+- Interactive navigation buttons for the carousel
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+To set up the project locally, follow these steps:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Requirements:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- node (v18+)
+- yarn (v1.2+)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. Clone the repository:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+   ```
+   git clone https://github.com/itachi-eth/everclime-impact-card.git
+   ```
+
+2. Install dependencies:
+   ```
+   cd everclime-impact-card
+   ```
+3. Install dependencies:
+   ```
+   yarn install or npm install
+   ```
+4. Start the development server:
+   ```
+   yarn run dev or npm run dev
+   ```
+5. Open your browser and navigate to `http://localhost:5173` to view the application.
+
+## Key Components
+
+- `ImpactCard`: Displays individual impact information with dynamic styling.
+- `Carousel`: Manages the display and navigation of multiple ImpactCards.
+
+## Configuration
+
+The `config.ts` file contains important configurations such as:
+
+- `mockCardData`: Sample data for impact cards
+- `mappingSlugToIcon`: Mapping for dynamic icon selection
+
+## Styling
+
+- Tailwind CSS is used for utility-first styling
+- CSS Modules (`.module.css` files) are used for component-specific styles
+- Custom CSS properties are utilized for dynamic color application
+
+## License
+
+MIT License
